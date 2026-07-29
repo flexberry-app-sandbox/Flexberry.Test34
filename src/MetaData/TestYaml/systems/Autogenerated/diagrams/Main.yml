@@ -2,60 +2,14 @@ diagramType: CAD
 name: Main
 primitives:
   - type: CADClass
-    caseName: Class
-    position: 236, 117
-    size: 139, 78
-    font: DejaVu Sans 9pt
-  - type: CADClass
-    caseName: InheritanceClass
-    position: 526, 158
-    size: 134, 66
-    font: DejaVu Sans 9pt
-  - type: CADClass
     caseName: AssosiationClass
     position: 115, 265
     size: 168, 66
-    font: DejaVu Sans 9pt
-  - type: Inheritance
-    startPrimitive: Class
-    endPrimitive: InheritanceClass
-    points:
-      - 340, 180
-      - 536, 198
-    font: DejaVu Sans 9pt
-  - type: Association
-    startPrimitive: AssosiationClass
-    endPrimitive: Class
-    points:
-      - 200, 300
-      - 249, 178
-    font: DejaVu Sans 9pt
-  - type: CADClass
-    caseName: AgregationClass
-    position: 386, 300
-    size: 139, 66
-    font: DejaVu Sans 9pt
-  - type: Composition
-    startPrimitive: Class
-    endPrimitive: AgregationClass
-    points:
-      - 320, 180
-      - 416, 325
     font: DejaVu Sans 9pt
   - type: CADClass
     caseName: ClassEnum
     position: 448, 26
     size: 115, 91
-    font: DejaVu Sans 9pt
-  - type: CADClass
-    caseName: ClassE
-    position: 131, 395
-    size: 146, 66
-    font: DejaVu Sans 9pt
-  - type: CADClass
-    caseName: ClassL
-    position: 285, 396
-    size: 145, 66
     font: DejaVu Sans 9pt
   - type: CADClass
     caseName: AssosiationClassE
@@ -68,12 +22,46 @@ primitives:
     size: 143, 66
     font: DejaVu Sans 9pt
   - type: CADClass
+    caseName: AggregationClass
+    position: 398, 270
+    size: 155, 78
+    font: DejaVu Sans 9pt
+  - type: CADClass
     caseName: AggregationE
-    position: 136, 471
-    size: 114, 66
+    position: 147, 438
+    size: 123, 66
     font: DejaVu Sans 9pt
   - type: CADClass
     caseName: AggregationL
-    position: 286, 469
+    position: 309, 424
     size: 114, 66
+    font: DejaVu Sans 9pt
+  - type: CADClass
+    caseName: ClassTest
+    position: 209, 67
+    size: 139, 78
+    font: DejaVu Sans 9pt
+  - type: Association
+    startPrimitive: AssosiationClass
+    endPrimitive: ClassTest
+    points:
+      - 190, 290
+      - 245, 133
+    font: DejaVu Sans 9pt
+  - type: Composition
+    startPrimitive: ClassTest
+    endPrimitive: AggregationClass
+    points:
+      - 320, 130
+      - 453, 285
+    font: DejaVu Sans 9pt
+  - type: CADClass
+    caseName: ClassTestE
+    position: 119, 351
+    size: 100, 66
+    font: DejaVu Sans 9pt
+  - type: CADClass
+    caseName: ClassTestL
+    position: 253, 347
+    size: 100, 66
     font: DejaVu Sans 9pt

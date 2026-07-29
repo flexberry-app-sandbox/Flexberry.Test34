@@ -1,0 +1,6 @@
+type: Aggregation
+startClassName: ClassTest
+startMultiplicity: 1
+endClassName: AggregationClass
+endMultiplicity: '*'
+storage: ClassTest

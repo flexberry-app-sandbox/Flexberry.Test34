@@ -124,12 +124,11 @@ namespace Test.WebAPI.Controllers
         /// <param name="perPage">Элементов на странице.</param>
         /// <param name="page">Текущая страница.</param>
         /// <param name="sorting">Сортировка.</param>
-        /// <param name="filter">Фильтр.</param>
         /// <returns>Список объектов.</returns>
         [HttpGet("AggregationL")]
-        public async Task<ActionResult<GetAllRequestResult<AggregationLDto>>> GetAllAggregationL(int? perPage = null, int? page = null, [FromQuery] string[] sorting = null, [FromQuery] AggregationLFilterDto filter = null)
+        public async Task<ActionResult<GetAllRequestResult<AggregationLDto>>> GetAllAggregationL(int? perPage = null, int? page = null, [FromQuery] string[] sorting = null)
         {
-            return await GetAll<AggregationLDto>(perPage, page, sorting, filter);
+            return await GetAll<AggregationLDto>(perPage, page, sorting);
         }
 
         /// <summary>
@@ -151,85 +150,6 @@ namespace Test.WebAPI.Controllers
         public async Task<ActionResult<int>> GetCountAggregationL()
         {
             return await GetCount<AggregationLDto>();
-        }
-
-        /// <summary>
-        /// Создать новый AgregationClass в форме AggregationEDto.
-        /// </summary>
-        /// <param name="dto">DTO с данными для создания.</param>
-        /// <returns>Созданный <see cref="AggregationEDto"/>.</returns>
-        [HttpPost("AggregationE")]
-        public async Task<ActionResult<AggregationEDto>> CreateAggregationE([FromBody] AggregationEDto dto)
-        {
-            if (dto == null)
-            {
-                return BadRequest();
-            }
-
-            try
-            {
-                AgregationClass created = await _agregationClassService.Create(dto);
-                AggregationEDto createdDto = new AggregationEDto(created);
-
-                return CreatedAtAction(nameof(GetByIdAggregationE), new { id = createdDto.Id }, createdDto);
-            }
-            catch (Exception ex) when (ex is ICSSoft.STORMNET.UnauthorizedAccessException or System.UnauthorizedAccessException)
-            {
-                return Forbid();
-            }
-            catch (Exception ex)
-            {
-                LogService.LogError("Ошибка при создании AgregationClass", ex);
-
-                return BadRequest();
-            }
-        }
-
-        /// <summary>
-        /// Обновить или создать AgregationClass в форме AggregationEDto.
-        /// </summary>
-        /// <param name="dto">DTO с новыми данными.</param>
-        /// <returns>Обновленный AgregationClass.</returns>
-        [HttpPut("AggregationE")]
-        public async Task<ActionResult<AggregationEDto>> UpdateAggregationE([FromBody] AggregationEDto dto)
-        {
-            if (dto == null)
-            {
-                return BadRequest();
-            }
-
-            try
-            {
-                AggregationEDto existed = await _agregationClassService.GetOrDefaultById<AggregationEDto>(dto.Id);
-                AgregationClass createdOrUpdated = new ();
-
-                if (existed == null)
-                {
-                    createdOrUpdated = await _agregationClassService.Create(dto);
-                }
-                else
-                {
-                    createdOrUpdated = await _agregationClassService.Update(dto);
-                }
-
-                AggregationEDto updatedDto = new (createdOrUpdated);
-
-                return Ok(updatedDto);
-            }
-            catch (Exception ex) when (ex is ICSSoft.STORMNET.UnauthorizedAccessException or System.UnauthorizedAccessException)
-            {
-                return Forbid();
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound();
-            }
-            catch (Exception ex)
-            {
-                LogService.LogError("Ошибка при обновлении AgregationClass", ex);
-
-                return BadRequest(ex.Message);
-            }
         }
 
         /// <summary>

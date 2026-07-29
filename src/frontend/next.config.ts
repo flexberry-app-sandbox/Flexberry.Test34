@@ -43,6 +43,18 @@ const nextConfig: NextConfig = {
         source: '/class-l/new',
         destination: '/ClassL/new',
       },
+      {
+        source: '/class-test-l',
+        destination: '/ClassTestL',
+      },
+      {
+        source: '/class-test-l/:id',
+        destination: '/ClassTestL/:id',
+      },
+      {
+        source: '/class-test-l/new',
+        destination: '/ClassTestL/new',
+      },
     ];
   },
 };

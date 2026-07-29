@@ -3,8 +3,8 @@ stereotype: «listform»
 caption: AggregationL
 formViews:
   - viewName: AggregationL
-    viewClassName: AgregationClass
+    viewClassName: AggregationClass
     dataObjectTypes:
-      - className: AgregationClass
+      - className: AggregationClass
         newContainerName: AggregationE
         editContainerName: AggregationE

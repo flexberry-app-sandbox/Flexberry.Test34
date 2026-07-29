@@ -4,15 +4,15 @@ import { Box } from '@mui/material';
 
 import DataTable from '@/components/DataTable';
 import { useNotification } from '@/components/Notification';
-import useGetAllAgregationClass from '@/hooks/AgregationClass/useGetAllAgregationClass';
-import useDeleteAllAgregationClass from '@/hooks/AgregationClass/useDeleteAllAgregationClass';
+import useGetAllAggregationClass from '@/hooks/AggregationClass/useGetAllAggregationClass';
+import useDeleteAllAggregationClass from '@/hooks/AggregationClass/useDeleteAllAggregationClass';
 import { tView } from '@/enums/tView.types';
-import { IAggregationL } from '@/types/AgregationClass.types';
+import { IAggregationL } from '@/types/AggregationClass.types';
 import useListState from '@/hooks/useListState';
 import useExportList from '@/hooks/useExportList';
 import { formatError } from '@/utils/errorsUtils';
 
-export default function AgregationClassPageList() {
+export default function AggregationClassPageList() {
   const viewName: string = 'AggregationL';
 
   const {
@@ -30,7 +30,7 @@ export default function AgregationClassPageList() {
       updateFilter,
     },
     params: { page, perPage, sorting, filter, search, setSearch },
-  } = useListState<IAggregationL>('AgregationClassPageList', {
+  } = useListState<IAggregationL>('AggregationClassPageList', {
     perPage: 10,
     columnWidth: {},
     columnHidden: {},
@@ -41,7 +41,7 @@ export default function AgregationClassPageList() {
 
   const { showError, showSuccess } = useNotification();
 
-  const { data, isLoading, count } = useGetAllAgregationClass<IAggregationL>({
+  const { data, isLoading, count } = useGetAllAggregationClass<IAggregationL>({
     viewName,
     perPage,
     page,
@@ -59,10 +59,10 @@ export default function AgregationClassPageList() {
     showError(`Ошибка при удалении настройки: ${formatError(error)}.`);
   };
 
-  const { deleteAllAgregationClass } = useDeleteAllAgregationClass(handleSuccess, handleError);
+  const { deleteAllAggregationClass } = useDeleteAllAggregationClass(handleSuccess, handleError);
 
   const handleDelete = (items: IAggregationL[]) => {
-    deleteAllAgregationClass(items.map((item) => item.id));
+    deleteAllAggregationClass(items.map((item) => item.id));
   };
 
   const { exportList } = useExportList({
@@ -75,8 +75,8 @@ export default function AgregationClassPageList() {
 
   const fields = applyFieldSettings([
     {
-      field: 'aggregation',
-      title: 'Aggregation',
+      field: 'aggregationAtr',
+      title: 'AggregationAtr',
       filter: true,
       type: 'text',
     },

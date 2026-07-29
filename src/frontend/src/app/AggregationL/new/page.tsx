@@ -7,15 +7,15 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { AxiosError } from 'axios';
 
 import AggregationEFields from '@/modules/FormFields/AggregationEFields';
-import useCreateAgregationClass from '@/hooks/AgregationClass/useCreateAgregationClass';
+import useCreateAggregationClass from '@/hooks/AggregationClass/useCreateAggregationClass';
 import { useNotification } from '@/components/Notification';
 import EditFormToolbar from '@/components/EditFormToolbar';
 import { ROUTES_CONFIG } from '@/config/routes.config';
 import { getQueryParamStateId } from '@/utils/getQueryParamStateId';
 import { createUuid } from '@/utils/guidUtils';
-import { IAggregationE } from '@/types/AgregationClass.types';
+import { IAggregationE } from '@/types/AggregationClass.types';
 
-export default function AgregationClassPageNew() {
+export default function AggregationClassPageNew() {
   const viewName: string = 'AggregationE';
 
   const searchParams = useSearchParams();
@@ -26,7 +26,7 @@ export default function AgregationClassPageNew() {
   const methods = useForm<IAggregationE>({
     defaultValues: {
       id: createUuid(),
-      aggregation: '',
+      aggregationAtr: '',
     },
   });
 
@@ -43,7 +43,7 @@ export default function AgregationClassPageNew() {
     showError(`Ошибка при сохранении: ${error.message}`);
   };
 
-  const { createAgregationClassAsync } = useCreateAgregationClass<IAggregationE>(handleSuccess, handleError);
+  const { createAggregationClassAsync } = useCreateAggregationClass<IAggregationE>(handleSuccess, handleError);
 
   const handleTransition = () => {
     router.push(`${ROUTES_CONFIG.AGGREGATION_L}${getQueryParamStateId(searchParams)}`);
@@ -56,7 +56,7 @@ export default function AgregationClassPageNew() {
           title="AggregationE"
           onSave={async (newValue: IAggregationE, close: boolean) => {
             setCloseAfter(close);
-            await createAgregationClassAsync({ agregationClass: newValue, viewName: viewName });
+            await createAggregationClassAsync({ aggregationClass: newValue, viewName: viewName });
           }}
           onTransition={handleTransition}
         />

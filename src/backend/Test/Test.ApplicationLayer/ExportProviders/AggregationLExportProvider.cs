@@ -21,24 +21,24 @@ namespace Test.ApplicationLayer.ExportProviders
     using Test.ApplicationLayer.Helpers;
     using Test.ApplicationLayer.Services;
     using Test.ApplicationLayer.DTO;
-    using Test.ApplicationLayer.DTO.AgregationClass;
+    using Test.ApplicationLayer.DTO.AggregationClass;
 
     /// <summary>
     /// Провайдер экспорта AggregationL в Excel.
     /// </summary>
-    public class AggregationLExportProvider : IExcelExportProvider<AgregationClassDtoBase>
+    public class AggregationLExportProvider : IExcelExportProvider<AggregationClassDtoBase>
     {
-        private readonly IAgregationClassService _service;
+        private readonly IAggregationClassService _service;
 
         private readonly IDataService _dataService;
 
         /// <summary>
         /// Инициализирует новый экземпляр <see cref="AggregationLExportProvider"/>.
         /// </summary>
-        /// <param name="service">Сервис работы с AgregationClass.</param>
+        /// <param name="service">Сервис работы с AggregationClass.</param>
         /// <param name="dataService">Сервис доступа к данным.</param>
         public AggregationLExportProvider(
-            IAgregationClassService service,
+            IAggregationClassService service,
             IDataService dataService)
         {
             _service = service;
@@ -46,11 +46,11 @@ namespace Test.ApplicationLayer.ExportProviders
         }
 
         /// <inheritdoc/>
-        public string EntityName => "AgregationClass";
+        public string EntityName => "AggregationClass";
 
         /// <inheritdoc/>
         public async Task<byte[]> ExportAsync<TDto>(string[] columns, string[] sorting, FilterDtoBase? filter)
-            where TDto : AgregationClassDtoBase, new()
+            where TDto : AggregationClassDtoBase, new()
         {
             LoadingCustomizationStruct lcs = await _service.BuildLcs<TDto>(null, null, sorting, filter);
 

@@ -1,0 +1,11 @@
+name: ClassTest
+caption: ClassTest
+attributes:
+  - name: Address
+    type: string
+    order: 1
+    isNullable: true
+  - name: Name
+    type: ClassEnum
+    order: 2
+    isNullable: true

@@ -14,6 +14,8 @@ export enum tView {
   AssosiationClassL = 'AssosiationClassL',
   ClassE = 'ClassE',
   ClassL = 'ClassL',
+  ClassTestE = 'ClassTestE',
+  ClassTestL = 'ClassTestL',
   InheritanceClassE = 'InheritanceClassE',
   InheritanceClassL = 'InheritanceClassL',
   // *** Start programmer edit section *** (Additional views)

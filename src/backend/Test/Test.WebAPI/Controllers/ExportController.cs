@@ -14,9 +14,10 @@ namespace Test.WebAPI.Controllers
     using Microsoft.AspNetCore.Mvc;
     using Unity;
     using Test.ApplicationLayer.DTO;
-    using Test.ApplicationLayer.DTO.AgregationClass;
+    using Test.ApplicationLayer.DTO.AggregationClass;
     using Test.ApplicationLayer.DTO.AssosiationClass;
     using Test.ApplicationLayer.DTO.Class;
+    using Test.ApplicationLayer.DTO.ClassTest;
     using Test.ApplicationLayer.ExportProviders;
 
     /// <summary>
@@ -52,7 +53,7 @@ namespace Test.WebAPI.Controllers
                 return BadRequest("Не указаны колонки для экспорта.");
             }
 
-            IExcelExportProvider<AgregationClassDtoBase> provider = _container.Resolve<IExcelExportProvider<AgregationClassDtoBase>>("AggregationLExportProvider");
+            IExcelExportProvider<AggregationClassDtoBase> provider = _container.Resolve<IExcelExportProvider<AggregationClassDtoBase>>("AggregationLExportProvider");
 
             try
             {
@@ -131,6 +132,41 @@ namespace Test.WebAPI.Controllers
                     xlsx,
                     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                     "ClassL.xlsx");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Экспорт ClassTestL в Excel.
+        /// </summary>
+        /// <param name="sorting">Параметры сортировки.</param>
+        /// <param name="columns">JSON-массив имён видимых колонок для экспорта.</param>
+        /// <param name="filter">Фильтр списка.</param>
+        /// <returns>XLSX-файл с экспортированными данными.</returns>
+        [HttpGet("ClassTestL")]
+        public async Task<IActionResult> ExportClassTestL(
+            [FromQuery] string[] sorting,
+            [FromQuery] string columns,
+            [FromQuery] ClassTestLFilterDto filter)
+        {
+            string[] fieldNames = JsonSerializer.Deserialize<string[]>(columns ?? "[]") ?? Array.Empty<string>();
+            if (fieldNames.Length == 0)
+            {
+                return BadRequest("Не указаны колонки для экспорта.");
+            }
+
+            IExcelExportProvider<ClassTestDtoBase> provider = _container.Resolve<IExcelExportProvider<ClassTestDtoBase>>("ClassTestLExportProvider");
+
+            try
+            {
+                byte[] xlsx = await provider.ExportAsync<ClassTestLDto>(fieldNames, sorting, filter);
+                return File(
+                    xlsx,
+                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    "ClassTestL.xlsx");
             }
             catch (Exception ex)
             {

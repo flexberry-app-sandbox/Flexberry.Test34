@@ -3,4 +3,4 @@ stereotype: «editform»
 caption: AggregationE
 formViews:
   - viewName: AggregationE
-    viewClassName: AgregationClass
+    viewClassName: AggregationClass

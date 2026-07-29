@@ -1,0 +1,7 @@
+diagramType: CAD
+name: Lost
+primitives:
+  - type: CADClass
+    caseName: ClassTest
+    position: 329, 5
+    font: DejaVu Sans 9pt

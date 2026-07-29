@@ -71,20 +71,6 @@ namespace Test.ApplicationLayer.Services
             where TDto : AgregationClassDtoBase, new();
 
         /// <summary>
-        /// Создаёт новый объект.
-        /// </summary>
-        /// <param name="dto">DTO с данными нового объекта.</param>
-        /// <returns>Созданный объект.</returns>
-        Task<AgregationClass> Create(AggregationEDto dto);
-
-        /// <summary>
-        /// Обновляет существующий объект.
-        /// </summary>
-        /// <param name="dto">DTO с обновлёнными данными объекта.</param>
-        /// <returns>Обновлённый объект.</returns>
-        Task<AgregationClass> Update(AggregationEDto dto);
-
-        /// <summary>
         /// Удаляет объект.
         /// </summary>
         /// <param name="id">Уникальный идентификатор удаляемого объекта.</param>

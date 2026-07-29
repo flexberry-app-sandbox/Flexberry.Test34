@@ -20,9 +20,10 @@ namespace Test.WebAPI
     using Swashbuckle.AspNetCore.SwaggerUI;
     using Unity;
     using Unity.Lifetime;
-    using Test.ApplicationLayer.DTO.AgregationClass;
+    using Test.ApplicationLayer.DTO.AggregationClass;
     using Test.ApplicationLayer.DTO.AssosiationClass;
     using Test.ApplicationLayer.DTO.Class;
+    using Test.ApplicationLayer.DTO.ClassTest;
     using Test.ApplicationLayer.ExportProviders;
     using Test.ApplicationLayer.Helpers;
     using Test.ApplicationLayer.Services;
@@ -143,14 +144,17 @@ namespace Test.WebAPI
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
+            container.RegisterType<IAggregationClassService, AggregationClassService>();
             container.RegisterType<IAgregationClassService, AgregationClassService>();
             container.RegisterType<IAssosiationClassService, AssosiationClassService>();
             container.RegisterType<IClassService, ClassService>();
+            container.RegisterType<IClassTestService, ClassTestService>();
             container.RegisterType<IInheritanceClassService, InheritanceClassService>();
 
-            container.RegisterType<IExcelExportProvider<AgregationClassDtoBase>, AggregationLExportProvider>("AggregationLExportProvider");
+            container.RegisterType<IExcelExportProvider<AggregationClassDtoBase>, AggregationLExportProvider>("AggregationLExportProvider");
             container.RegisterType<IExcelExportProvider<AssosiationClassDtoBase>, AssosiationClassLExportProvider>("AssosiationClassLExportProvider");
             container.RegisterType<IExcelExportProvider<ClassDtoBase>, ClassLExportProvider>("ClassLExportProvider");
+            container.RegisterType<IExcelExportProvider<ClassTestDtoBase>, ClassTestLExportProvider>("ClassTestLExportProvider");
 
             container.RegisterSingleton<IHttpContextAccessor, HttpContextAccessor>();
             container.RegisterSingleton<IUserSettingsService, UserSettingsService>();

@@ -3,6 +3,13 @@
 
 
 
+CREATE TABLE AggregationClass (
+ primaryKey UUID NOT NULL,
+ AggregationAtr VARCHAR(255) NULL,
+ ClassTest UUID NOT NULL,
+ PRIMARY KEY (primaryKey));
+
+
 CREATE TABLE InheritanceClass (
  primaryKey UUID NOT NULL,
  Inheritance VARCHAR(255) NULL,
@@ -13,6 +20,14 @@ CREATE TABLE InheritanceClass (
 
 
 CREATE TABLE Class (
+ primaryKey UUID NOT NULL,
+ Address VARCHAR(255) NULL,
+ Name VARCHAR(6) NULL,
+ AssosiationClass UUID NOT NULL,
+ PRIMARY KEY (primaryKey));
+
+
+CREATE TABLE ClassTest (
  primaryKey UUID NOT NULL,
  Address VARCHAR(255) NULL,
  Name VARCHAR(6) NULL,
@@ -138,11 +153,17 @@ CREATE TABLE ApplicationLog (
 
 
 
+ ALTER TABLE AggregationClass ADD CONSTRAINT FKad618eb44b11353e8558b0b1a16499259d15020a FOREIGN KEY (ClassTest) REFERENCES ClassTest; 
+CREATE INDEX Indexad618eb44b11353e8558b0b1a16499259d15020a on AggregationClass (ClassTest); 
+
  ALTER TABLE InheritanceClass ADD CONSTRAINT FK606c7d89361aeb6453390c2dd7d9baa14305908a FOREIGN KEY (AssosiationClass) REFERENCES AssosiationClass; 
 CREATE INDEX Index606c7d89361aeb6453390c2dd7d9baa14305908a on InheritanceClass (AssosiationClass); 
 
  ALTER TABLE Class ADD CONSTRAINT FK38354ca86ee9149cc5c514ec297e3f4aeb8b963a FOREIGN KEY (AssosiationClass) REFERENCES AssosiationClass; 
 CREATE INDEX Index38354ca86ee9149cc5c514ec297e3f4aeb8b963a on Class (AssosiationClass); 
+
+ ALTER TABLE ClassTest ADD CONSTRAINT FK378c0bbb7784ba99a6f452f2614fedc9d3353919 FOREIGN KEY (AssosiationClass) REFERENCES AssosiationClass; 
+CREATE INDEX Index378c0bbb7784ba99a6f452f2614fedc9d3353919 on ClassTest (AssosiationClass); 
 
  ALTER TABLE AgregationClass ADD CONSTRAINT FK9083d4d7bfd8715ba51f6dcdb0edc48cb32e280c FOREIGN KEY (Class_m0) REFERENCES Class; 
 CREATE INDEX Index9083d4d7bfd8715ba51f6dcdb0edc48cb32e280c on AgregationClass (Class_m0); 

@@ -21,13 +21,13 @@ namespace Test
     public enum ClassEnum
     {
 
-        [Caption("")]
+        [Caption("class1")]
         class1,
 
-        [Caption("")]
+        [Caption("class2")]
         class2,
 
-        [Caption("")]
+        [Caption("class3")]
         class3,
     }
 }

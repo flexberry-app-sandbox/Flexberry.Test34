@@ -1,12 +1,15 @@
 name: ClassEnum
 stereotype: «enumeration»
 attributes:
-  - name: class1
+  - name: class2
     order: 1
     isNullable: true
-  - name: class2
+    caption: class2
+  - name: class3
     order: 2
     isNullable: true
-  - name: class3
+    caption: class3
+  - name: class1
     order: 3
     isNullable: true
+    caption: class1

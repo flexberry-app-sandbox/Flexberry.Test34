@@ -7,19 +7,19 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { AxiosError } from 'axios';
 
 import AggregationEFields from '@/modules/FormFields/AggregationEFields';
-import useGetAgregationClass from '@/hooks/AgregationClass/useGetAgregationClass';
-import useUpdateAgregationClass from '@/hooks/AgregationClass/useUpdateAgregationClass';
+import useGetAggregationClass from '@/hooks/AggregationClass/useGetAggregationClass';
+import useUpdateAggregationClass from '@/hooks/AggregationClass/useUpdateAggregationClass';
 import { useNotification } from '@/components/Notification';
 import EditFormToolbar from '@/components/EditFormToolbar';
 import CircularProgressCenter from '@/components/CircularProgressCenter';
-import { IAggregationE } from '@/types/AgregationClass.types';
+import { IAggregationE } from '@/types/AggregationClass.types';
 import { ROUTES_CONFIG } from '@/config/routes.config';
 import DisabledFormProvider from '@/components/DisabledFormProvider';
 import { useDataObjectLock } from '@/hooks/useDataObjectLock';
 import { getQueryParamStateId } from '@/utils/getQueryParamStateId';
 import { createUuid } from '@/utils/guidUtils';
 
-export default function AgregationClassPageEdit() {
+export default function AggregationClassPageEdit() {
   const viewName: string = 'AggregationE';
   const { id } = useParams<{ id: NonEmptyString }>();
   const { mode } = useDataObjectLock(id);
@@ -32,14 +32,14 @@ export default function AgregationClassPageEdit() {
     router.push(ROUTES_CONFIG.AGGREGATION_L);
   };
 
-  const { data, isLoading } = useGetAgregationClass<IAggregationE>({ id, viewName, onNotFound: handleNotFound });
+  const { data, isLoading } = useGetAggregationClass<IAggregationE>({ id, viewName, onNotFound: handleNotFound });
 
   const [closeAfter, setCloseAfter] = useState(false);
 
   const methods = useForm<IAggregationE>({
     defaultValues: {
       id: createUuid(),
-      aggregation: '',
+      aggregationAtr: '',
     },
   });
 
@@ -54,11 +54,11 @@ export default function AgregationClassPageEdit() {
     showError(`Ошибка при сохранении: ${error.message}`);
   };
 
-  const { updateAgregationClassAsync } = useUpdateAgregationClass<IAggregationE>(handleSuccess, handleError);
+  const { updateAggregationClassAsync } = useUpdateAggregationClass<IAggregationE>(handleSuccess, handleError);
 
   const handleSave = async (newValue: IAggregationE, close: boolean) => {
     setCloseAfter(close);
-    await updateAgregationClassAsync({ agregationClass: newValue, viewName: viewName });
+    await updateAggregationClassAsync({ aggregationClass: newValue, viewName: viewName });
   };
 
   const handleTransition = () => {

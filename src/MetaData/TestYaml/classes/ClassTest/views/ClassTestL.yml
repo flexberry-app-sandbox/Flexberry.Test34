@@ -1,0 +1,6 @@
+name: ClassTestL
+properties:
+  - name: Address
+    caption: Address
+  - name: Name
+    caption: Name

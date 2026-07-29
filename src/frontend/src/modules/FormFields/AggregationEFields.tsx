@@ -23,9 +23,9 @@ const AggregationEFields = ({ isNew = false }: AggregationEFieldsProps) => {
         >
           <Grid size={{ xs: 12, md: 6, lg: 6 }}>
             <ControlTextField
-              id="aggregation"
-              name="aggregation"
-              label="Aggregation"
+              id="aggregationAtr"
+              name="aggregationAtr"
+              label="AggregationAtr"
             />
           </Grid>
         </Grid>
