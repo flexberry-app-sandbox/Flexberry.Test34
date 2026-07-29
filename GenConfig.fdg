@@ -3,7 +3,7 @@
   "CrpLocalPath": null,
   "JsonMetadataPath": null,
   "OnlineCrpUrl": null,
-  "YamlMetadataPath": "./src/MetaData/TestYaml",
+  "YamlMetadataPath": "./src/MetaData/TesttYaml",
   "OneShotToken": null,
   "GenPath": "src",
   "BeforeGenScriptPath": null,
