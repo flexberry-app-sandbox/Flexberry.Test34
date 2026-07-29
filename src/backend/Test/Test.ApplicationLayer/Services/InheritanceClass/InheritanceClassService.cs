@@ -176,6 +176,7 @@ namespace Test.ApplicationLayer.Services
         private async Task<DataObject[]> GetObjectsForDelete(Guid id)
         {
             // *** Start programmer edit section *** (objects for delete validation)
+
             // *** End programmer edit section *** (objects for delete validation)
 
             InheritanceClass entity = await LoadExisting(id);

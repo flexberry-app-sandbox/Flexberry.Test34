@@ -56,11 +56,11 @@ namespace Test.ApplicationLayer.DTO.Class
         public ClassEnum Name { get; set; }
 
         /// <summary>
-        /// AssosiationClass.
+        /// AssosiationClass.AssosiationName.
         /// </summary>
-        [PropertyName("AssosiationClass")]
-        [CaptionProperty("AssosiationClass")]
-        public Guid AssosiationClassId { get; set; }
+        [PropertyName("AssosiationClass.AssosiationName")]
+        [CaptionProperty("AssosiationClass.AssosiationName")]
+        public string? AssosiationClassAssosiationName { get; set; }
 
         // *** Start programmer edit section *** (Custom properties)
 
@@ -81,7 +81,7 @@ namespace Test.ApplicationLayer.DTO.Class
             Id = PKHelper.GetGuidByObject(source).GetValueOrDefault();
             Address = source.Address;
             Name = source.Name;
-            AssosiationClassId = PKHelper.GetGuidByObject(source.AssosiationClass).GetValueOrDefault();
+            AssosiationClassAssosiationName = source.AssosiationClass?.AssosiationName ?? string.Empty;
 
             // *** Start programmer edit section *** (FillFromClass custom)
 
@@ -101,17 +101,6 @@ namespace Test.ApplicationLayer.DTO.Class
             destination.__PrimaryKey = Id;
             destination.Address = Address;
             destination.Name = Name;
-
-            if (AssosiationClassId != Guid.Empty)
-            {
-                AssosiationClass assosiationClass = new AssosiationClass();
-                assosiationClass.SetExistObjectPrimaryKey(AssosiationClassId);
-                destination.AssosiationClass = assosiationClass;
-            }
-            else
-            {
-                destination.AssosiationClass = null;
-            }
 
             // *** Start programmer edit section *** (UpdateFromDto custom)
 

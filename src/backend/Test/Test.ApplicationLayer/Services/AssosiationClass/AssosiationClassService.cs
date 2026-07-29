@@ -268,7 +268,6 @@ namespace Test.ApplicationLayer.Services
         private async Task<DataObject[]> GetObjectsForDelete(Guid id)
         {
             // *** Start programmer edit section *** (objects for delete validation)
-
             // Проверка, есть ли такие Class, которые ссылаются на удаляемый AssosiationClass.
             _serviceHelper.CheckRelation<AssosiationClass, Class>(
                 id,

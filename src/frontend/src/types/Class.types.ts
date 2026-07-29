@@ -22,7 +22,7 @@ export interface IBaseClass {
 export interface IClassE extends IBaseClass {
   address: string;
   name: ClassEnum;
-  assosiationClassId: NonEmptyString;
+  assosiationClassAssosiationName: string;
   // *** Start programmer edit section *** (IClassE custom)
 
   // *** End programmer edit section *** (IClassE custom)

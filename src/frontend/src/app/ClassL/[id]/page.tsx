@@ -18,7 +18,7 @@ import { ROUTES_CONFIG } from '@/config/routes.config';
 import DisabledFormProvider from '@/components/DisabledFormProvider';
 import { useDataObjectLock } from '@/hooks/useDataObjectLock';
 import { getQueryParamStateId } from '@/utils/getQueryParamStateId';
-import { createUuid, emptyGuid } from '@/utils/guidUtils';
+import { createUuid } from '@/utils/guidUtils';
 
 export default function ClassPageEdit() {
   const viewName: string = 'ClassE';
@@ -42,7 +42,7 @@ export default function ClassPageEdit() {
       id: createUuid(),
       address: '',
       name: ClassEnum.class1,
-      assosiationClassId: emptyGuid,
+      assosiationClassAssosiationName: '',
     },
   });
 

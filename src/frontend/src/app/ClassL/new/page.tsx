@@ -12,7 +12,7 @@ import { useNotification } from '@/components/Notification';
 import EditFormToolbar from '@/components/EditFormToolbar';
 import { ROUTES_CONFIG } from '@/config/routes.config';
 import { getQueryParamStateId } from '@/utils/getQueryParamStateId';
-import { createUuid, emptyGuid } from '@/utils/guidUtils';
+import { createUuid } from '@/utils/guidUtils';
 import { ClassEnum } from '@/enums/ClassEnum.types';
 import { IClassE } from '@/types/Class.types';
 
@@ -29,7 +29,7 @@ export default function ClassPageNew() {
       id: createUuid(),
       address: '',
       name: ClassEnum.class1,
-      assosiationClassId: emptyGuid,
+      assosiationClassAssosiationName: '',
     },
   });
 

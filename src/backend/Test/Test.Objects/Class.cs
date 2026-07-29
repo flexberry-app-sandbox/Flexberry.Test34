@@ -27,7 +27,7 @@ namespace Test
     [View("ClassE", new string[] {
             "Address as \'Address\'",
             "Name as \'Name\'",
-            "AssosiationClass as \'AssosiationClass\'"})]
+            "AssosiationClass.AssosiationName as \'AssosiationClass.AssosiationName\'"})]
     [View("ClassL", new string[] {
             "Address as \'Address\'",
             "Name as \'Name\'"})]
