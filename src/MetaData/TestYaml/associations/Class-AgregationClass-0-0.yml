@@ -1,0 +1,6 @@
+type: Aggregation
+startClassName: Class
+startMultiplicity: 1
+endClassName: AgregationClass
+endMultiplicity: '*'
+storage: Class

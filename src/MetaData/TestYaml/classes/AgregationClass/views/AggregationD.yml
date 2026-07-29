@@ -1,0 +1,10 @@
+name: AggregationD
+properties:
+  - name: Aggregation
+    caption: Aggregation
+  - name: Class.Address
+    caption: Class.Address
+  - name: Class.Name
+    caption: Class.Name
+  - name: Class.AssosiationClass.AssosiationName
+    caption: Class.AssosiationClass.AssosiationName

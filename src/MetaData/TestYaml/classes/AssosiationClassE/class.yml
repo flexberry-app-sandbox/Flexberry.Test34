@@ -1,0 +1,6 @@
+name: AssosiationClassE
+stereotype: «editform»
+caption: AssosiationClassE
+formViews:
+  - viewName: AssosiationClassE
+    viewClassName: AssosiationClass

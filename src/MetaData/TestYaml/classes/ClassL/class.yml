@@ -1,0 +1,10 @@
+name: ClassL
+stereotype: «listform»
+caption: ClassL
+formViews:
+  - viewName: ClassL
+    viewClassName: Class
+    dataObjectTypes:
+      - className: Class
+        newContainerName: ClassE
+        editContainerName: ClassE

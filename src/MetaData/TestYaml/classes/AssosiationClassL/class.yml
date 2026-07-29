@@ -1,0 +1,10 @@
+name: AssosiationClassL
+stereotype: «listform»
+caption: AssosiationClassL
+formViews:
+  - viewName: AssosiationClassL
+    viewClassName: AssosiationClass
+    dataObjectTypes:
+      - className: AssosiationClass
+        newContainerName: AssosiationClassE
+        editContainerName: AssosiationClassE

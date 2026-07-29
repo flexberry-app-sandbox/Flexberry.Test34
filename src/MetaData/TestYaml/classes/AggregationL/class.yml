@@ -1,0 +1,10 @@
+name: AggregationL
+stereotype: «listform»
+caption: AggregationL
+formViews:
+  - viewName: AggregationL
+    viewClassName: AgregationClass
+    dataObjectTypes:
+      - className: AgregationClass
+        newContainerName: AggregationE
+        editContainerName: AggregationE

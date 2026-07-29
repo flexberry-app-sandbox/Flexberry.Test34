@@ -1,0 +1,7 @@
+name: AgregationClass
+caption: AgregationClass
+attributes:
+  - name: Aggregation
+    type: string
+    order: 1
+    isNullable: true

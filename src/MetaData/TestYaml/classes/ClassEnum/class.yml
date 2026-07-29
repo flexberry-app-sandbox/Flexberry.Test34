@@ -1,0 +1,12 @@
+name: ClassEnum
+stereotype: «enumeration»
+attributes:
+  - name: class1
+    order: 1
+    isNullable: true
+  - name: class2
+    order: 2
+    isNullable: true
+  - name: class3
+    order: 3
+    isNullable: true
