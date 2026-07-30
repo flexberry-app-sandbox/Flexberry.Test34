@@ -65,3 +65,8 @@ primitives:
     position: 253, 347
     size: 100, 66
     font: DejaVu Sans 9pt
+  - type: CADClass
+    caseName: Testt
+    position: 595, 432
+    size: 106, 66
+    font: DejaVu Sans 9pt
